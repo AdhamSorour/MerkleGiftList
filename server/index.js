@@ -13,12 +13,10 @@ const MERKLE_ROOT = 'ddd59a2ffccddd60ff47993312821cd57cf30f7f14fb82937ebe2c4dc78
 app.post('/gift', (req, res) => {
   // grab the parameters from the front-end here
   const { name, proof } = req.body;
-  const isInTheList = false;
 
   if (verifyProof(proof, name, MERKLE_ROOT)) {
     res.send("You got a toy robot!");
-  }
-  else {
+  } else {
     res.send("You are not on the list :(");
   }
 });
